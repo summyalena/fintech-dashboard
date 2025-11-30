@@ -20,24 +20,18 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const savedTheme = localStorage.getItem('theme') as Theme
     if (savedTheme) {
       setTheme(savedTheme)
-    } else {
-      // Optional: Check system preference
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      setTheme(systemPrefersDark ? 'dark' : 'light')
     }
   }, [])
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark'
     setTheme(newTheme)
-    if (mounted) {
-      localStorage.setItem('theme', newTheme)
-    }
+    localStorage.setItem('theme', newTheme)
   }
 
-  // Only provide context after mounting
+  // Prevent hydration mismatch
   if (!mounted) {
-    return <>{children}</>
+    return <div style={{ visibility: 'hidden' }}>{children}</div>
   }
 
   return (
