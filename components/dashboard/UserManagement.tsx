@@ -4,17 +4,15 @@ import { useState, useEffect } from 'react'
 import { Search, MoreVertical, CheckCircle, Lock, Clock, RefreshCw } from 'lucide-react'
 import { usersAPI } from '@/lib/api'
 import type { UserAccount } from '@/lib/types'
+import { useTheme } from '@/lib/theme'
 
-interface UserManagementProps {
-  theme: 'light' | 'dark'
-}
-
-export default function UserManagement({ theme }: UserManagementProps) {
+export default function UserManagement() {
   const [users, setUsers] = useState<UserAccount[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
-  const [statusFilter, setStatusFilter] = useState('All')
+  const [statusFilter, setStatusFilter] = useState('All');
+  const {theme} = useTheme();
   const isDark = theme === 'dark'
 
   const loadUsers = async () => {

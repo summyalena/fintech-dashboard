@@ -6,15 +6,14 @@ import { DollarSign, Activity, Users, Clock, ArrowDownRight, ArrowUpRight, Refre
 import KPICard from '../ui/Kpi-card'
 import { dashboardAPI } from '@/lib/api'
 import type { DashboardData } from '@/lib/types'
+import { useTheme } from '@/lib/theme' // Add this import
 
-interface OverviewDashboardProps {
-  theme: 'light' | 'dark'
-}
-
-export default function OverviewDashboard({ theme }: OverviewDashboardProps) {
+// Remove the theme prop from the interface
+export default function OverviewDashboard() {
   const [data, setData] = useState<DashboardData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const { theme } = useTheme() // Use the hook internally
   const isDark = theme === 'dark'
 
   const loadData = async () => {
@@ -85,7 +84,6 @@ export default function OverviewDashboard({ theme }: OverviewDashboardProps) {
           changeType={data.kpis.totalRevenue.trend === 'up' ? 'positive' : 'negative'}
           icon={DollarSign}
           trend={true}
-          theme={theme}
         />
         <KPICard
           title="Transactions"
@@ -94,7 +92,7 @@ export default function OverviewDashboard({ theme }: OverviewDashboardProps) {
           changeType={data.kpis.transactionsPerHour.trend === 'up' ? 'positive' : 'negative'}
           icon={Activity}
           trend={true}
-          theme={theme}
+          // Remove theme prop from KPICard
         />
         <KPICard
           title="Active Users"
@@ -103,7 +101,7 @@ export default function OverviewDashboard({ theme }: OverviewDashboardProps) {
           changeType={data.kpis.activeUsers.trend === 'up' ? 'positive' : 'negative'}
           icon={Users}
           trend={true}
-          theme={theme}
+          // Remove theme prop from KPICard
         />
         <KPICard
           title="Pending"
@@ -112,7 +110,7 @@ export default function OverviewDashboard({ theme }: OverviewDashboardProps) {
           changeType={data.kpis.pendingPayouts.trend === 'up' ? 'positive' : 'negative'}
           icon={Clock}
           trend={true}
-          theme={theme}
+          // Remove theme prop from KPICard
         />
       </div>
 

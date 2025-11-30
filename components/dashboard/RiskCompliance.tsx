@@ -4,16 +4,14 @@ import { useState, useEffect } from 'react'
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 import { AlertTriangle, RefreshCw } from 'lucide-react'
 import { riskAPI } from '@/lib/api'
+import { useTheme } from '@/lib/theme'
 
-interface RiskComplianceProps {
-  theme: 'light' | 'dark'
-}
-
-export default function RiskCompliance({ theme }: RiskComplianceProps) {
+export default function RiskCompliance() {
   const [alerts, setAlerts] = useState<any[]>([])
   const [fraudStats, setFraudStats] = useState<any>(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
+  const {theme} = useTheme();
   const isDark = theme === 'dark'
 
   const loadData = async () => {

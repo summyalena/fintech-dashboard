@@ -2,10 +2,7 @@
 
 import { useState } from 'react'
 import { Search, Download, ArrowUpRight, ArrowDownRight, MoreVertical, CheckCircle, Clock, XCircle } from 'lucide-react'
-
-interface TransactionsProps {
-  theme: 'light' | 'dark'
-}
+import { useTheme } from '@/lib/theme'
 
 interface Transaction {
   id: string
@@ -54,11 +51,12 @@ const generateTransactions = (): Transaction[] => {
   })
 }
 
-export default function Transactions({ theme }: TransactionsProps) {
+export default function Transactions() {
   const [transactions] = useState<Transaction[]>(generateTransactions())
   const [searchTerm, setSearchTerm] = useState('')
   const [typeFilter, setTypeFilter] = useState<'all' | 'income' | 'expense'>('all')
-  const [statusFilter, setStatusFilter] = useState<'all' | 'completed' | 'pending' | 'failed'>('all')
+  const [statusFilter, setStatusFilter] = useState<'all' | 'completed' | 'pending' | 'failed'>('all');
+  const {theme} = useTheme();
   const isDark = theme === 'dark'
 
   const filteredTransactions = transactions.filter(txn => {

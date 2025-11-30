@@ -1,7 +1,8 @@
 'use client'
 
 import { LucideIcon } from 'lucide-react'
-import { TrendingUp, TrendingDown } from 'lucide-react'
+import { TrendingUp, TrendingDown } from 'lucide-react';
+import { useTheme } from '@/lib/theme';
 
 interface KPICardProps {
   title: string
@@ -10,7 +11,6 @@ interface KPICardProps {
   changeType?: 'positive' | 'negative'
   icon: LucideIcon
   trend?: boolean
-  theme: 'light' | 'dark'
 }
 
 export default function KPICard({
@@ -20,9 +20,10 @@ export default function KPICard({
   changeType,
   icon: Icon,
   trend,
-  theme,
 }: KPICardProps) {
-  const isDark = theme === 'dark'
+
+  const {theme: currentTheme} = useTheme();
+  const isDark = currentTheme === 'dark';
   
   return (
     <div className={`${isDark ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-zinc-200'} rounded-xl p-6 border hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10`}>

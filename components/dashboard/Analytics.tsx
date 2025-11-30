@@ -2,12 +2,10 @@
 
 import { useState } from 'react'
 import { LineChart, Line, BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts'
-import { TrendingUp, TrendingDown, DollarSign, Activity, Users, RefreshCw, Download } from 'lucide-react'
+import { TrendingUp, DollarSign, Activity, Users, RefreshCw, Download } from 'lucide-react'
 import KPICard from '../ui/Kpi-card';
+import { useTheme } from '@/lib/theme';
 
-interface AnalyticsProps {
-  theme: 'light' | 'dark'
-}
 
 // Mock data generators
 const generateGrowthData = () => {
@@ -40,11 +38,12 @@ const generateUserGrowth = () => {
   }))
 }
 
-export default function Analytics({ theme }: AnalyticsProps) {
+export default function Analytics() {
   const [growthData, setGrowthData] = useState(generateGrowthData())
   const [performanceData, setPerformanceData] = useState(generatePerformanceData())
   const [userGrowthData, setUserGrowthData] = useState(generateUserGrowth())
-  const [period, setPeriod] = useState<'week' | 'month' | 'year'>('month')
+  const [period, setPeriod] = useState<'week' | 'month' | 'year'>('month');
+  const {theme} = useTheme();
   const isDark = theme === 'dark'
 
   const refreshData = () => {
@@ -96,7 +95,6 @@ export default function Analytics({ theme }: AnalyticsProps) {
           changeType="positive"
           icon={DollarSign}
           trend={true}
-          theme={theme}
         />
         <KPICard
           title="Growth Rate"
@@ -105,7 +103,6 @@ export default function Analytics({ theme }: AnalyticsProps) {
           changeType="positive"
           icon={TrendingUp}
           trend={true}
-          theme={theme}
         />
         <KPICard
           title="Active Users"
@@ -114,7 +111,6 @@ export default function Analytics({ theme }: AnalyticsProps) {
           changeType="positive"
           icon={Users}
           trend={true}
-          theme={theme}
         />
         <KPICard
           title="Avg. Transaction"
@@ -123,7 +119,6 @@ export default function Analytics({ theme }: AnalyticsProps) {
           changeType="negative"
           icon={Activity}
           trend={true}
-          theme={theme}
         />
       </div>
 
