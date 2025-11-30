@@ -21,23 +21,23 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     setLoading(true)
 
     try {
-      const response = await authAPI.login(email, password)
-      if (response.success) {
-        console.log(response);
-        onLogin(response.user)
-      }
+      // const response = await authAPI.login(email, password)
+      // if (response.success) {
+      //   console.log(response);
+      //   onLogin(response.user)
+      // }
 
-    //    if (email === 'admin@fintech.com' && password === 'admin123') {
-    //   const mockUser: User = {
-    //     // id: '1',
-    //     name: 'Admin User',
-    //     email: 'admin@fintech.com',
-    //     role: 'admin'
-    //   }
-    //   onLogin(mockUser)
-    //  } else {
-    //   setError('Invalid credentials');
-    //  }
+       if (email === 'admin@fintech.com' && password === 'admin123') {
+      const mockUser: User = {
+        // id: '1',
+        name: 'Admin User',
+        email: 'admin@fintech.com',
+        role: 'admin'
+      }
+      onLogin(mockUser)
+     } else {
+      setError('Invalid credentials');
+     }
     
     }
     catch (err: any) {
