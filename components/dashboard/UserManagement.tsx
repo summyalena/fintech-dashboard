@@ -44,7 +44,6 @@ export default function UserManagement() {
       <div className="flex items-center justify-between">
         <div>
           <h2 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-zinc-900'} mb-2`}>User Management</h2>
-          <p className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Data loaded from API endpoint</p>
         </div>
         <button
           onClick={loadUsers}
@@ -117,7 +116,7 @@ export default function UserManagement() {
                   <td colSpan={6} className="px-6 py-8 text-center">
                     <div className="flex items-center justify-center gap-2">
                       <RefreshCw className="w-5 h-5 text-cyan-400 animate-spin" />
-                      <span className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Loading users from API...</span>
+                      <span className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Loading...</span>
                     </div>
                   </td>
                 </tr>
@@ -189,7 +188,7 @@ export default function UserManagement() {
       {!loading && users.length > 0 && (
         <div className={`flex items-center justify-between text-sm ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
           <p>Showing {users.length} users</p>
-          <p>Loaded from /api/users endpoint</p>
+          <p>Loaded</p>
         </div>
       )}
     </div>

@@ -6,7 +6,7 @@ import { DollarSign, Activity, Users, Clock, ArrowDownRight, ArrowUpRight, Refre
 import KPICard from '../ui/Kpi-card'
 import { dashboardAPI } from '@/lib/api'
 import type { DashboardData } from '@/lib/types'
-import { useTheme } from '@/lib/theme' // Add this import
+import { useTheme } from '@/lib/theme'
 
 // Remove the theme prop from the interface
 export default function OverviewDashboard() {
@@ -38,7 +38,7 @@ export default function OverviewDashboard() {
       <div className="flex items-center justify-center h-96">
         <div className="flex flex-col items-center gap-3">
           <RefreshCw className="w-8 h-8 text-cyan-400 animate-spin" />
-          <p className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Loading dashboard data from API...</p>
+          <p className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Loading...</p>
         </div>
       </div>
     )
@@ -64,7 +64,7 @@ export default function OverviewDashboard() {
       <div className="flex items-center justify-between">
         <div>
           <h2 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-zinc-900'} mb-2`}>Overview Dashboard</h2>
-          <p className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Real-time financial health metrics from API</p>
+          <p className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Real-time financial health metrics</p>
         </div>
         <button
           onClick={loadData}

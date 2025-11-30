@@ -39,7 +39,7 @@ export default function Sidebar({
             <CreditCard className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h1 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-zinc-900'}`}>FinTech</h1>
+            <h1 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-zinc-900'}`}>LedgerView</h1>
             <p className={`text-xs ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>Operations</p>
           </div>
         </div>

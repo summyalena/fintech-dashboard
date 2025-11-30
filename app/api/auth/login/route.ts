@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 const users = [
   {
     id: '1',
-    email: 'admin@fintech.com',
+    email: 'admin@ledgerview.com',
     password: 'admin123',
     name: 'Admin User',
     role: 'Administrator',

@@ -21,23 +21,23 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     setLoading(true)
 
     try {
-      // const response = await authAPI.login(email, password)
-      // if (response.success) {
-      //   console.log(response);
-      //   onLogin(response.user)
-      // }
-
-       if (email === 'admin@fintech.com' && password === 'admin123') {
-      const mockUser: User = {
-        // id: '1',
-        name: 'Admin User',
-        email: 'admin@fintech.com',
-        role: 'admin'
+      const response = await authAPI.login(email, password)
+      if (response.success) {
+        console.log(response);
+        onLogin(response.user)
       }
-      onLogin(mockUser)
-     } else {
-      setError('Invalid credentials');
-     }
+
+    //    if (email === 'admin@ledgerview.com' && password === 'admin123') {
+    //   const mockUser: User = {
+    //     // id: '1',
+    //     name: 'Admin User',
+    //     email: 'admin@ledgerview.com',
+    //     role: 'admin'
+    //   }
+    //   onLogin(mockUser)
+    //  } else {
+    //   setError('Invalid credentials');
+    //  }
     
     }
     catch (err: any) {
@@ -55,7 +55,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl mb-4 shadow-lg shadow-cyan-500/25">
             <CreditCard className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">FinTech Operations</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">LedgerView</h1>
           <p className="text-zinc-400">Sign in to access your dashboard</p>
         </div>
 
@@ -71,7 +71,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@fintech.com"
+                  placeholder="admin@gmail.com"
                   className="w-full pl-10 pr-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
                   required
                 />
@@ -101,11 +101,11 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
               </div>
             )}
 
-            <div className="p-3 bg-cyan-500/10 border border-cyan-500/30 rounded-lg">
+            {/* <div className="p-3 bg-cyan-500/10 border border-cyan-500/30 rounded-lg">
               <p className="text-xs text-cyan-400 font-medium">Demo Credentials:</p>
-              <p className="text-xs text-cyan-300 mt-1">Email: admin@fintech.com</p>
+              <p className="text-xs text-cyan-300 mt-1">Email:admin@ledgerview.com</p>
               <p className="text-xs text-cyan-300">Password: admin123</p>
-            </div>
+            </div> */}
 
             <button
               type="submit"
@@ -117,9 +117,9 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           </form>
         </div>
 
-        <p className="text-center text-sm text-zinc-500 mt-6">
+        {/* <p className="text-center text-sm text-zinc-500 mt-6">
           Dashboard with API integration
-        </p>
+        </p> */}
       </div>
     </div>
   )

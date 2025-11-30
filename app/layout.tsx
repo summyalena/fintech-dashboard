@@ -6,8 +6,8 @@ import { Providers } from '@/components/providers/Providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'FinTech Operations Dashboard',
-  description: 'Modern admin dashboard for FinTech operations with API integration',
+  title: 'LedgerView Operations Dashboard',
+  description: 'Admin dashboard for financial operations',
 }
 
 export default function RootLayout({

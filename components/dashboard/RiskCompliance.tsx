@@ -40,7 +40,7 @@ export default function RiskCompliance() {
       <div className="flex items-center justify-center h-96">
         <div className="flex flex-col items-center gap-3">
           <RefreshCw className="w-8 h-8 text-cyan-400 animate-spin" />
-          <p className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Loading risk data from API...</p>
+          <p className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Loading...</p>
         </div>
       </div>
     )
@@ -66,7 +66,7 @@ export default function RiskCompliance() {
       <div className="flex items-center justify-between">
         <div>
           <h2 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-zinc-900'} mb-2`}>Risk & Compliance</h2>
-          <p className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Monitor suspicious activity from API endpoints</p>
+          <p className={isDark ? 'text-zinc-400' : 'text-zinc-600'}>Monitor suspicious activity</p>
         </div>
         <button
           onClick={loadData}
