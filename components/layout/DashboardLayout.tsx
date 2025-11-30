@@ -3,6 +3,7 @@
 import { ReactNode } from 'react'
 import Sidebar from '../navigation/Sidebar'
 import type { User } from '@/lib/types'
+import { useTheme } from '@/lib/theme'
 
 interface DashboardLayoutProps {
   children: ReactNode
@@ -10,8 +11,6 @@ interface DashboardLayoutProps {
   setActiveView: (view: string) => void
   user: User | null
   onLogout: () => void
-  theme: 'light' | 'dark'        // ADD THIS
-  toggleTheme: () => void         // ADD THIS
 }
 
 export default function DashboardLayout({
@@ -20,9 +19,8 @@ export default function DashboardLayout({
   setActiveView,
   user,
   onLogout,
-  theme,           // ADD THIS
-  toggleTheme,     // ADD THIS
 }: DashboardLayoutProps) {
+  const { theme, toggleTheme } = useTheme()
   const isDark = theme === 'dark'
   
   return (
